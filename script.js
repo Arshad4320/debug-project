@@ -35,7 +35,7 @@ const typeController = (e) => {
 
   // if it is not a valid character like Control/Alt then skip displaying anything
   if (!validLetters.includes(newLetter)) {
-    return;
+    return errorCount++;
   }
 
   userText += newLetter;
@@ -83,7 +83,7 @@ const gameOver = () => {
   resultModal.innerHTML += `
     <h1>Finished!</h1>
     <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
-    <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
+    <p>You made <span class="bold red">${errorCount++}</span> mistakes</p>
     <button onclick="closeModal()">Close</button>
   `;
 
@@ -113,7 +113,7 @@ const start = () => {
     countdownOverlay.innerHTML = `<h1>${count}</h1>`;
 
     // finished timer
-    if (count == '') {
+    if (count == 0) {
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
       countdownOverlay.style.display = "none";
