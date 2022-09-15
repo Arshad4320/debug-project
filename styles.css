@@ -148,10 +148,15 @@ button {
   cursor: pointer;
 }
 
-#histories {
+/* #histories {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-around; */
+/* } */
+#histories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .card {
@@ -184,6 +189,7 @@ button {
   top: 0;
 }
 
+/* mobile device responsive  */
 @media only screen and (max-width: 700px) {
   .box-container {
     padding: 0 20px;
@@ -192,5 +198,27 @@ button {
 
   .card {
     flex-direction: column;
+  }
+
+  #histories {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #result {
+    position: fixed;
+    width: 300px;
+    height: 250px;
+  }
+
+  button {
+    width: 235px;
+  }
+}
+
+/* tablet responsive  */
+
+@media only screen and (min-width: 701px) and (max-width: 998px) {
+  #histories {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
